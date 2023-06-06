@@ -54,19 +54,20 @@ public class DataSource {
     Account account = null;
     try (Connection connection = connect();
         PreparedStatement statement = connection.prepareStatement(sql)) {
-      statement.setInt(1, accountId);
 
-      try (ResultSet resultSet = statement.executeQuery()) {
-        account = new Account(
-          resultSet.getInt("id"),
-          resultSet.getString("type"),
-          resultSet.getDouble("balance"));
+          statement.setInt(1, accountId);
+
+          try (ResultSet resultSet = statement.executeQuery()) {
+            account = new Account(
+              resultSet.getInt("id"),
+              resultSet.getString("type"),
+              resultSet.getDouble("balance"));
+          }
+      } catch (SQLException e) {
+        e.printStackTrace();
       }
-    } catch (SQLException e) {
-      e.printStackTrace();
-    }
 
-    return account;
+      return account;
   }
 
   public static void main(String[] args) {
