@@ -1,14 +1,14 @@
 package bank;
 
 public class Customer {
-  
+
   private int id;
   private String name;
   private String username;
   private String password;
   private int accountId;
 
-  public Customer(int id, String name, String username, String password, int accountID) {
+  public Customer(int id, String name, String username, String password, int accountId) {
     setId(id);
     setName(name);
     setUsername(username);
