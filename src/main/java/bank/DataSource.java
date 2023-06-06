@@ -16,7 +16,7 @@ public class DataSource {
     Connection connection = null;
     try {
       connection = DriverManager.getConnection(db_file);
-      System.out.println("Connection Granted");
+      //System.out.println("Connection Granted"); // Check to see if connects
     } catch (SQLException exception) {
       exception.printStackTrace();
     }
