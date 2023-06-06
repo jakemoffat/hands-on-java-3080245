@@ -30,10 +30,10 @@ public class Menu {
   }
 
   private Customer authenticateUser() {
-    System.out.println("Please enter your Username");
+    System.out.print("Please enter your Username: ");
     String username = scanner.next();
 
-    System.out.println("Please enter your Password");
+    System.out.print("Please enter your Password: ");
     String password = scanner.next();
 
     Customer customer = null;
@@ -65,6 +65,7 @@ public class Menu {
       switch(selection) {
         case 1:
         System.out.println("How much would you like to deposit?");
+        System.out.print("$");
         amount = scanner.nextDouble();
         try {
           account.deposit(amount);
@@ -81,7 +82,7 @@ public class Menu {
         break;
 
         case 3:
-        System.out.println("Your Current Balance: " + account.getBalance());
+        System.out.println("Your Current Balance: $" + account.getBalance());
         break;
 
         case 4:

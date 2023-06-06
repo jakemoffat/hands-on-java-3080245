@@ -45,6 +45,8 @@ public class Account {
     else {
       double newBalance = balance + amount;
       setBalance(newBalance);
+      System.out.println("Success, Your New Balance: $" + newBalance);
+      DataSource.updateAccountBalance(id, newBalance);
     }
   }
 
