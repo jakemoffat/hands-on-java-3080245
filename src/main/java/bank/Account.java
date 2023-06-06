@@ -1,6 +1,7 @@
 package bank;
 
 public class Account {
+
   private int id;
   private String type;
   private double balance;
