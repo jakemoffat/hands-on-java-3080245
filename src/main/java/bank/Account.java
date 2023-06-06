@@ -40,7 +40,7 @@ public class Account {
 
   public void deposit(double amount) throws AmountException{
     if (amount <= 0) {
-      throw new AmountException("Deposit Value cannot be $0 or Negative");
+      throw new AmountException("Deposit Value cannot be less than $0");
     }
     else {
       double newBalance = balance + amount;
@@ -50,7 +50,20 @@ public class Account {
     }
   }
 
-  public void withdraw(double amount) {
+  public void withdraw(double amount) throws AmountException{
+    if (amount <= 0) {
+      throw new AmountException("Withdraw Value must be greater than $0");
+    }
+    else if (amount > getBalance()) {
+      throw new AmountException("Insufficient Funds");
+    }
+    else {
+      double newBalance = balance - amount;
+      setBalance(newBalance);
+      System.out.println("Success, Your New Balance: $" + newBalance);
+      DataSource.updateAccountBalance(id, newBalance);
+    }
+
 
   }
 
