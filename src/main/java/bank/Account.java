@@ -36,8 +36,14 @@ public class Account {
     this.balance = balance;
   }
 
-  public void deposit(double amount) {
-
+  public void deposit(double amount) throws AmountException{
+    if (amount <= 0) {
+      throw new AmountException("Deposit Value cannot be $0 or Negative");
+    }
+    else {
+      double newBalance = balance + amount;
+      setBalance(newBalance);
+    }
   }
 
   public void withdraw(double amount) {
